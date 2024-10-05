@@ -23,7 +23,6 @@ FOR($j=0,$j<4)
         INIWRITE("configs\warehouse.ini",STRCONCAT("warehouse",$k,"X"),$value1,"1280@720")
         INIWRITE("configs\warehouse.ini",STRCONCAT("warehouse",$k,"Y"),$value2,"1280@720")
         INC($k,1)
-
     END_CYC
 END_CYC
 
