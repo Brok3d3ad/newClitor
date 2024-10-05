@@ -2,6 +2,12 @@ SUB(bumpClitor)
     WNDSTATE($_hwnd_self, 0)
     WNDSTATE($_hwnd_self, 1)
 END_SUB
+SUB(killClitor)
+    $pid = HGETPID($_hwnd_self)
+    EXECUTE("win\\hiddenkill.vbs",$pid)
+END_SUB
+$pid = HGETPID($_hwnd_self)
+EXECUTE("win\\hiddenkill.vbs",$pid)
 
 SUB(check,$varName,$varCount)
     FOR($i=1,$i<$varCount+1)
