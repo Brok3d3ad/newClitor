@@ -10,10 +10,6 @@ END_SUB
 
 SUB(read_set_cargoSlots,$ini_variable,$variable)
     $value = INIREAD($cargoSlotsPath,$ini_variable,$currentResolution)
-    LOGWRITE($currentResolution)
-    LOGWRITE($value)
-    LOGWRITE($cargoSlotsPath)
-    LOGWRITE($ini_variable)
     SETVAR($variable,$value)
 END_SUB
 
