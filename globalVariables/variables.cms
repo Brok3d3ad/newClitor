@@ -1,8 +1,8 @@
 //PAHTS
 
-$cargoSlotsPath = "configs\cargoSlots.ini"
-$currentResolutionPath = "configs\resolution.ini"
-$warehousePath = "configs\warehouse.ini"
+$cargoSlotsPath = "..\configs\cargoSlots.ini"
+$currentResolutionPath = "..\configs\resolution.ini"
+$warehousePath = "..\configs\warehouse.ini"
 //PAHTS
 
 //-----------

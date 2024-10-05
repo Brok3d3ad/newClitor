@@ -1,0 +1,13 @@
+#autorun
+#logfile
+#include "..\globalVariables\variables.cms"
+#include "..\functions\utilities.cms"
+#include "..\functions\init.cms"
+init()
+
+LOGWRITE($cargoSlot1[1])
+
+bumpClitor()
+
+
+HALT

@@ -1,7 +1,4 @@
-﻿LCLICK(424,327)  // 7370619
-LCLICK(485,329)  // 1967616
-LCLICK(422,384)  // 8028551
-#logfile
+﻿#logfile
 #autorun
 $name = "cl0wn katafalk"
 $hwnd = WNDFIND($name)
@@ -20,8 +17,6 @@ FOR($j=0,$j<4)
         SCREENSHOTEX($x+($i*61)-$border,$j+$y+($j*56)-$border,$x+($i*61)+$border,$j+$y+($j*56)+$border)
         $value1= $x+($i*61)
         $value2= $j+$y+($j*56)
-        INIWRITE("configs\warehouse.ini",STRCONCAT("warehouse",$k,"X"),$value1,"1280@720")
-        INIWRITE("configs\warehouse.ini",STRCONCAT("warehouse",$k,"Y"),$value2,"1280@720")
         INC($k,1)
     END_CYC
 END_CYC
