@@ -1,17 +1,28 @@
-﻿#logfile
+﻿LCLICK(424,327)  // 7370619
+LCLICK(485,329)  // 1967616
+LCLICK(422,384)  // 8028551
+#logfile
 #autorun
 $name = "cl0wn katafalk"
 $hwnd = WNDFIND($name)
 HSET($hwnd,1)
+//426 487 +-61
+//353 409 +-56
 
-$x=1115
-$y=440
-$border=27
+$x=426
+$y=353
+$border=21
 GETSCREEN
-FOR($i=0,$i<3)
-    FOR($j=0,$j<5)
-        SCREENSHOTEX($x+($i*65)-$border,$j+$y+($j*62)-$border,$x+($i*65)+$border,$j+$y+($j*62)+$border)
-
+SCREENSHOTFIX($x-$border,$y-$border,$x+$border,$y+$border,"test.bmp")
+$k=1
+FOR($j=0,$j<4)
+    FOR($i=0,$i<8)
+        SCREENSHOTEX($x+($i*61)-$border,$j+$y+($j*56)-$border,$x+($i*61)+$border,$j+$y+($j*56)+$border)
+        $value1= $x+($i*61)
+        $value2= $j+$y+($j*56)
+        INIWRITE("configs\warehouse.ini",STRCONCAT("warehouse",$k,"X"),$value1,"1280@720")
+        INIWRITE("configs\warehouse.ini",STRCONCAT("warehouse",$k,"Y"),$value2,"1280@720")
+        INC($k,1)
 
     END_CYC
 END_CYC
