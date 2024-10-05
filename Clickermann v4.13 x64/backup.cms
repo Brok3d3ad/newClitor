@@ -1,0 +1,16 @@
+﻿LCLICK(1179,414)  // 3554838
+LCLICK(1112,475)  // 1318400
+#autorun
+$name = "cl0wn katafalk"
+$hwnd = WNDFIND($name)
+HSET($hwnd,1)
+
+$x=1115
+$y=414+26
+$border=27
+GETSCREEN
+SCREENSHOTFIX($x-$border,$y-$border,$x+$border,$y+$border,"test.bmp")
+
+
+
+HALT

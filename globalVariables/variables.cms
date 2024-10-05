@@ -17,5 +17,33 @@ $currentResolution = 0
 //GAME_VARIABLES
 
 $cargoSlot1[0] = 0
-
+$cargoSlot1[1] = 0
+$cargoSlot2[0] = 0
+$cargoSlot2[1] = 0
+$cargoSlot3[0] = 0
+$cargoSlot3[1] = 0
+$cargoSlot4[0] = 0
+$cargoSlot4[1] = 0
+$cargoSlot5[0] = 0
+$cargoSlot5[1] = 0
+$cargoSlot6[0] = 0
+$cargoSlot6[1] = 0
+$cargoSlot7[0] = 0
+$cargoSlot7[1] = 0
+$cargoSlot8[0] = 0
+$cargoSlot8[1] = 0
+$cargoSlot9[0] = 0
+$cargoSlot9[1] = 0
+$cargoSlot10[0] = 0
+$cargoSlot10[1] = 0
+$cargoSlot11[0] = 0
+$cargoSlot11[1] = 0
+$cargoSlot12[0] = 0
+$cargoSlot12[1] = 0
+$cargoSlot13[0] = 0
+$cargoSlot13[1] = 0
+$cargoSlot14[0] = 0
+$cargoSlot14[1] = 0
+$cargoSlot15[0] = 0
+$cargoSlot15[1] = 0
 //GAME_VARIABLES

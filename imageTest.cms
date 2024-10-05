@@ -1,0 +1,19 @@
+﻿#logfile
+#autorun
+$name = "cl0wn katafalk"
+$hwnd = WNDFIND($name)
+HSET($hwnd,1)
+
+$x=1115
+$y=440
+$border=27
+GETSCREEN
+FOR($i=0,$i<3)
+    FOR($j=0,$j<5)
+        SCREENSHOTEX($x+($i*65)-$border,$j+$y+($j*62)-$border,$x+($i*65)+$border,$j+$y+($j*62)+$border)
+
+
+    END_CYC
+END_CYC
+
+HALT

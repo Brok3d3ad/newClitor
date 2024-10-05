@@ -1,4 +1,5 @@
 #autorun
+#logfile
 #include "globalVariables\variables.cms"
 #include "functions\utilities.cms"
 #include "functions\init.cms"
@@ -6,5 +7,5 @@ init()
 
 bumpClitor()
 
-LOGWRITE($cargoSlot1[0])
+
 HALT
