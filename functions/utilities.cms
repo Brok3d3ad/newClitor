@@ -3,9 +3,20 @@ SUB(bumpClitor)
     WNDSTATE($_hwnd_self, 1)
 END_SUB
 
+SUB(check,$varName,$varCount)
+    FOR($i=1,$i<$varCount+1)
+        $x = STRCONCAT("$",$varName,$i,"[0]")
+        $y = STRCONCAT("$",$varName,$i,"[1]")
+        LOGWRITE($x," = ",GETVAR($x))
+        LOGWRITE($y," = ",GETVAR($y))
+    END_CYC
+END_SUB
+
 SUB(read_set,$path,$ini_variable,$variable)
+
     $value = INIREAD($path,$ini_variable)
     SETVAR($variable,$value)
+
 END_SUB
 
 SUB(read_set_cargoSlots,$ini_variable,$variable)
@@ -13,3 +24,28 @@ SUB(read_set_cargoSlots,$ini_variable,$variable)
     SETVAR($variable,$value)
 END_SUB
 
+SUB(read_set_warehouse,$ini_variable,$variable)
+    $value = INIREAD($warehousePath,$ini_variable,$currentResolution)
+    SETVAR($variable,$value)
+END_SUB
+
+SUB(read_2d_property,$propertyName,$propertyAmount,$function)
+
+    FOR($i=1,$i<$propertyAmount+1)
+        $tempX = STRCONCAT($propertyName,$i,"X")
+        $tempY = STRCONCAT($propertyName,$i,"Y")
+        $tempXarr = STRCONCAT("$",$propertyName,$i,"[0]")
+        $tempYarr = STRCONCAT("$",$propertyName,$i,"[1]")
+        
+        SWITCH($function)
+            case("cargoSlots")
+                read_set_cargoSlots($tempX,$tempXarr)
+                read_set_cargoSlots($tempY,$tempYarr)
+            case("warehouse")
+                read_set_warehouse($tempX,$tempXarr)
+                read_set_warehouse($tempY,$tempYarr)
+            default
+                //
+        END_SWITCH
+    END_CYC
+END_SUB

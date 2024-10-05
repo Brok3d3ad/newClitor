@@ -2,7 +2,7 @@
 
 $cargoSlotsPath = "configs\cargoSlots.ini"
 $currentResolutionPath = "configs\resolution.ini"
-
+$warehousePath = "configs\warehouse.ini"
 //PAHTS
 
 //-----------
@@ -46,4 +46,70 @@ $cargoSlot14[0] = 0
 $cargoSlot14[1] = 0
 $cargoSlot15[0] = 0
 $cargoSlot15[1] = 0
+
+$warehouse1[0] = 0
+$warehouse1[1] = 0
+$warehouse2[0] = 0
+$warehouse2[1] = 0
+$warehouse3[0] = 0
+$warehouse3[1] = 0
+$warehouse4[0] = 0
+$warehouse4[1] = 0
+$warehouse5[0] = 0
+$warehouse5[1] = 0
+$warehouse6[0] = 0
+$warehouse6[1] = 0
+$warehouse7[0] = 0
+$warehouse7[1] = 0
+$warehouse8[0] = 0
+$warehouse8[1] = 0
+$warehouse9[0] = 0
+$warehouse9[1] = 0
+$warehouse10[0] = 0
+$warehouse10[1] = 0
+$warehouse11[0] = 0
+$warehouse11[1] = 0
+$warehouse12[0] = 0
+$warehouse12[1] = 0
+$warehouse13[0] = 0
+$warehouse13[1] = 0
+$warehouse14[0] = 0
+$warehouse14[1] = 0
+$warehouse15[0] = 0
+$warehouse15[1] = 0
+$warehouse16[0] = 0
+$warehouse16[1] = 0
+$warehouse17[0] = 0
+$warehouse17[1] = 0
+$warehouse18[0] = 0
+$warehouse18[1] = 0
+$warehouse19[0] = 0
+$warehouse19[1] = 0
+$warehouse20[0] = 0
+$warehouse20[1] = 0
+$warehouse21[0] = 0
+$warehouse21[1] = 0
+$warehouse22[0] = 0
+$warehouse22[1] = 0
+$warehouse23[0] = 0
+$warehouse23[1] = 0
+$warehouse24[0] = 0
+$warehouse24[1] = 0
+$warehouse25[0] = 0
+$warehouse25[1] = 0
+$warehouse26[0] = 0
+$warehouse26[1] = 0
+$warehouse27[0] = 0
+$warehouse27[1] = 0
+$warehouse28[0] = 0
+$warehouse28[1] = 0
+$warehouse29[0] = 0
+$warehouse29[1] = 0
+$warehouse30[0] = 0
+$warehouse30[1] = 0
+$warehouse31[0] = 0
+$warehouse31[1] = 0
+$warehouse32[0] = 0
+$warehouse32[1] = 0
+
 //GAME_VARIABLES
