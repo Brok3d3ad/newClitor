@@ -1,0 +1,4 @@
+SUB(init)
+    read_set($currentResolutionPath,"resolution","$currentResolution")
+    read_set_cargoSlots("cargoSlot1X","$cargoSlot1[0]")
+END_SUB

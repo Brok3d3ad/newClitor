@@ -1,0 +1,19 @@
+SUB(bumpClitor)
+    WNDSTATE($_hwnd_self, 0)
+    WNDSTATE($_hwnd_self, 1)
+END_SUB
+
+SUB(read_set,$path,$ini_variable,$variable)
+    $value = INIREAD($path,$ini_variable)
+    SETVAR($variable,$value)
+END_SUB
+
+SUB(read_set_cargoSlots,$ini_variable,$variable)
+    $value = INIREAD($cargoSlotsPath,$ini_variable,$currentResolution)
+    LOGWRITE($currentResolution)
+    LOGWRITE($value)
+    LOGWRITE($cargoSlotsPath)
+    LOGWRITE($ini_variable)
+    SETVAR($variable,$value)
+END_SUB
+

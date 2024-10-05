@@ -1,0 +1,21 @@
+//PAHTS
+
+$cargoSlotsPath = "configs\cargoSlots.ini"
+$currentResolutionPath = "configs\resolution.ini"
+
+//PAHTS
+
+//-----------
+
+//VARIABLES
+
+$currentResolution = 0
+
+//VARIABLES
+
+
+//GAME_VARIABLES
+
+$cargoSlot1[0] = 0
+
+//GAME_VARIABLES
