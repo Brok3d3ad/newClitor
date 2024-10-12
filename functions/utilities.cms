@@ -8,6 +8,10 @@ SUB(killClitor)
     EXECUTE("win\\hiddenkill.vbs",$pid)
 END_SUB
 
+SUB(bindWindow,$name)
+    $win = WNDFIND($name)
+    HSET($win,1)
+END_SUB
 
 SUB(check,$varName,$varCount)
     FOR($i=1,$i<$varCount+1)
@@ -20,9 +24,9 @@ END_SUB
 
 SUB(read_set,$path,$ini_variable,$variable)
 
-    $value = INIREAD($path,$ini_variable)
+    $value = INIREAD($path,$ini_variable,$currentResolution)
     SETVAR($variable,$value)
-
+    
 END_SUB
 
 SUB(read_set_cargoSlots,$ini_variable,$variable)

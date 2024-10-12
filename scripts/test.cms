@@ -1,0 +1,16 @@
+﻿#autorun
+#logfile
+#include "..\functions\utilities.cms"
+
+bindWindow("cl0wn ZRazorIII")
+$flag = 0
+WHILE(1)
+
+    IF($flag != INIREAD("..\pythonGUI\config.ini","autoattack","Settings"))
+        PRINT("Changed")
+        $flag = INIREAD("..\pythonGUI\config.ini","autoattack","Settings")
+    END_IF
+    WAITMS(100)
+END_CYC
+
+HALT

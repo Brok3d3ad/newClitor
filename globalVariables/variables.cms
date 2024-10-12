@@ -3,6 +3,7 @@
 $cargoSlotsPath = "..\configs\cargoSlots.ini"
 $currentResolutionPath = "..\configs\resolution.ini"
 $warehousePath = "..\configs\warehouse.ini"
+$buttonsPath = "..\configs\buttons.ini"
 //PAHTS
 
 //-----------
@@ -15,6 +16,11 @@ $currentResolution = 0
 
 
 //GAME_VARIABLES
+
+$moveCargo[0] = 0
+$moveCargo[1] = 0
+$moveCargoAll[0] = 0
+$moveCargoAll[1] = 0  
 
 $cargoSlot1[0] = 0
 $cargoSlot1[1] = 0
