@@ -1,16 +1,9 @@
-﻿LCLICK(1179,414)  // 3554838
-LCLICK(1112,475)  // 1318400
-#autorun
-$name = "cl0wn katafalk"
-$hwnd = WNDFIND($name)
-HSET($hwnd,1)
+﻿#autorun
+#logfile
+#include "..\functions\utilities.cms"
 
-$x=1115
-$y=414+26
-$border=27
-GETSCREEN
-SCREENSHOTFIX($x-$border,$y-$border,$x+$border,$y+$border,"test.bmp")
-
-
+bindWindow("cl0wn ZRazorIII")
+LCLICK(1103,330)  // 3555613
+LCLICK(631,165)  // 9086516
 
 HALT

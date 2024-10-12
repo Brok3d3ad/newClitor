@@ -1,5 +1,10 @@
 SUB(init)
-    read_set($currentResolutionPath,"resolution","$currentResolution")
+    SETVAR("$currentResolution",INIREAD($currentResolutionPath,"resolution"))
+    //read_set($currentResolutionPath,"resolution","$currentResolution")
     read_2d_property("cargoSlot",15,"cargoSlots")
     read_2d_property("warehouse",32,"warehouse")
+    read_set($buttonsPath,"moveCargoX","$moveCargo[0]")
+    read_set($buttonsPath,"moveCargoY","$moveCargo[1]")
+    read_set($buttonsPath,"moveCargoAllX","$moveCargoAll[0]")
+    read_set($buttonsPath,"moveCargoAllY","$moveCargoAll[1]")
 END_SUB

@@ -1,13 +1,12 @@
-#autorun
+﻿#autorun
 #logfile
 #include "..\globalVariables\variables.cms"
 #include "..\functions\utilities.cms"
 #include "..\functions\init.cms"
 init()
 
-LOGWRITE($cargoSlot1[1])
-
 bumpClitor()
 
-
+$x = "$moveCargo[1]"
+LOGWRITE($x," = ",GETVAR($x))
 HALT
