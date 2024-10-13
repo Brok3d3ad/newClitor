@@ -7,6 +7,4 @@ init()
 
 bumpClitor()
 
-$x = "$moveCargo[1]"
-LOGWRITE($x," = ",GETVAR($x))
 HALT

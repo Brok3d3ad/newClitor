@@ -1,14 +1,23 @@
 ﻿#autorun
 #logfile
+#include "..\globalVariables\variables.cms"
 #include "..\functions\utilities.cms"
+#include "..\functions\game.cms"
+#include "..\functions\init.cms"
+init()
 
 bindWindow("cl0wn ZRazorIII")
-$flag = INIREAD("..\pythonGUI\config.ini","test")
-WHILE(1)
+bumpClitor()
+$updateCargo = "Update_cargo"
+$path = "..\pythonGUI\config\config.ini"
+$flag = INIREAD($path,$updateCargo)
 
-    IF($flag != INIREAD("..\pythonGUI\config.ini","test"))
-        PRINT("Changed")
-        $flag = INIREAD("..\pythonGUI\config.ini","test")
+
+
+WHILE(1)
+    IF($flag != INIREAD($path,$updateCargo))
+        move_cargo(1)
+        $flag = INIREAD($path,$updateCargo)
     END_IF
     WAITMS(100)
 END_CYC

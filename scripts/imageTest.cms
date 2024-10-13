@@ -1,22 +1,24 @@
 ﻿#logfile
 #autorun
-$name = "cl0wn katafalk"
+$name = "cl0wn ZRazorIII"
 $hwnd = WNDFIND($name)
 HSET($hwnd,1)
 //426 487 +-61
 //353 409 +-56
 
-$x=426
-$y=353
-$border=21
+$x=1115
+$y=440
+$xStep=65
+$yStep=63
+$border=15
 GETSCREEN
-SCREENSHOTFIX($x-$border,$y-$border,$x+$border,$y+$border,"test.bmp")
+
 $k=1
-FOR($j=0,$j<4)
-    FOR($i=0,$i<8)
-        SCREENSHOTEX($x+($i*61)-$border,$j+$y+($j*56)-$border,$x+($i*61)+$border,$j+$y+($j*56)+$border)
-        $value1= $x+($i*61)
-        $value2= $j+$y+($j*56)
+FOR($j=0,$j<5)
+    FOR($i=0,$i<3)
+        SCREENSHOTEX($x+($i*$xStep)-$border,$j+$y+($j*$yStep)-$border,$x+($i*$xStep)+$border,$j+$y+($j*$yStep)+$border)
+        $value1= $x+($i*xStep)
+        $value2= $j+$y+($j*yStep)
         INC($k,1)
 
     END_CYC
