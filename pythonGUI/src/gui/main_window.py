@@ -35,10 +35,10 @@ class TestToggleApp:
     def create_widgets(self):
         """Initial function to add some default variables."""
         # Add variables by reading from config or setting defaults
-        var1 = "ilunya"
+        var1 = "Update_cargo"
         var2 = "mashasha"
         self.add_variable(var1, self.config_controller.read_value('default', var1, fallback="0"))  # Default value: OFF
-        self.add_variable(var2, self.config_controller.read_value('default', var2, fallback="0"))  # Default value: ON
+        #self.add_variable(var2, self.config_controller.read_value('default', var2, fallback="0"))  # Default value: ON
 
     def add_variable(self, variable_name, initial_value="0"):
         """Adds a new variable with a toggle button and ON/OFF label."""

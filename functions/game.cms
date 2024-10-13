@@ -1,0 +1,11 @@
+SUB(move_cargo,$button)
+    LCLICK($moveCargo[0],$moveCargo[1])
+    WAITMS(100)
+    SWITCH($button)
+        CASE(1)
+            LCLICK($moveCargoAll[0],$moveCargoAll[1])
+        DEFAULT
+            LCLICK(0,0)
+    END_SWITCH
+END_SUB
+
