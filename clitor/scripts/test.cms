@@ -9,7 +9,7 @@ init()
 bindWindow("cl0wn ZRazorIII")
 bumpClitor()
 $updateCargo = "Update_cargo"
-$path = "..\pythonGUI\config\config.ini"
+$path = "..\..\pythonGUI\config\config.ini"
 $flag = INIREAD($path,$updateCargo)
 
 
