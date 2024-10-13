@@ -1,11 +1,12 @@
 import configparser
 import os
 import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 class ConfigController:
     def __init__(self, config_file_path):
         # Store the path to the config file, handling development and PyInstaller modes
-        self.config_file_path = self.resource_path(config_file_path)
+        self.config_file_path = config_file_path
         self.config = configparser.ConfigParser()
 
     def read_value(self, section, key, fallback=None):
@@ -47,15 +48,4 @@ class ConfigController:
                     self.config.write(configfile)
         else:
             raise FileNotFoundError(f"Config file not found: {self.config_file_path}")
-
-    def resource_path(self, relative_path):
-        """ Get absolute path to resource, works for dev and for PyInstaller """
-        try:
-            # PyInstaller stores files in a temporary folder when creating an executable
-            base_path = sys._MEIPASS
-        except AttributeError:
-            # If not running as an executable, return the relative path for development
-            base_path = os.path.abspath("..")  # Adjust based on your folder structure
-
-        return os.path.join(base_path, relative_path)
 
