@@ -12,7 +12,7 @@ class TestToggleApp:
         self.root.config(bg='#1a1e22')
 
         # Initialize the ConfigController with the path to the config file
-        self.config_controller = ConfigController('pythonGUI\config\config.ini')
+        self.config_controller = ConfigController('pythonGUI\\config\\config.ini')
 
         # Load the file paths from the [Paths] section of config.ini
         self.icon_path = self.config_controller.read_value('Paths', 'ICON_PATH')
