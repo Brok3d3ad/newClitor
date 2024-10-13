@@ -3,12 +3,12 @@
 #include "..\functions\utilities.cms"
 
 bindWindow("cl0wn ZRazorIII")
-$flag = 0
+$flag = INIREAD("..\pythonGUI\config.ini","test")
 WHILE(1)
 
-    IF($flag != INIREAD("..\pythonGUI\config.ini","autoattack","Settings"))
+    IF($flag != INIREAD("..\pythonGUI\config.ini","test"))
         PRINT("Changed")
-        $flag = INIREAD("..\pythonGUI\config.ini","autoattack","Settings")
+        $flag = INIREAD("..\pythonGUI\config.ini","test")
     END_IF
     WAITMS(100)
 END_CYC
