@@ -1,0 +1,149 @@
+﻿﻿#autorun
+#define gv:getvar
+#define sv:setvar
+//OFFSET +2,0,0,0
+
+$auto_shoot_image_path = "images/top_right_panel/auto_shoot_on.bmp" 
+$auto_aim_image_path = "images/top_right_panel/auto_aim_on.bmp" 
+$auto_hp_regen_image_path = "images/top_right_panel/auto_hp_regen_on.bmp" 
+$auto_pick_up_image_path = "images/top_right_panel/auto_pick_up_on.bmp" 
+$auto_energy_regen_image_path = "images/top_right_panel/auto_energy_regen_on.bmp" 
+
+$nick = "cl0wn ZRazorIII"
+$hwin = WNDFIND(GV("$nick"))
+$hp_level = 100
+$energy_level = 100
+$auto_shoot_state = 0
+$auto_aim_state = 0
+$auto_hp_regen_state = 0
+$auto_pick_up_state = 0
+$auto_energy_regen_state = 0
+
+$top_right_panel[0] = 1101 
+$top_right_panel[1] = 26
+$top_right_panel[2] = 1282
+$top_right_panel[3] = 129
+
+$hp_bar[0] = 1119
+$hp_bar[1] = 47
+$hp_bar[2] = 1122
+$hp_bar[3] = 97 
+$hp_bar_color = 1973860
+$hp_bar_pixels = 204
+
+$energy_bar[0] = 1131
+$energy_bar[1] = 47
+$energy_bar[2] = 1135
+$energy_bar[3] = 97 
+$energy_bar_color = 6561310
+$energy_bar_pixels = 255
+
+$auto_shoot_rect[0] = 116 
+$auto_shoot_rect[1] = 108
+$auto_shoot_rect[2] = 1142
+$auto_shoot_rect[3] = 120
+
+$auto_aim_rect[0] = 1154 
+$auto_aim_rect[1] = 102 
+$auto_aim_rect[2] = 1176
+$auto_aim_rect[3] = 122 
+
+$auto_pick_up_rect[0] = 1188
+$auto_pick_up_rect[1] = 106 
+$auto_pick_up_rect[2] = 1210
+$auto_pick_up_rect[3] = 122 
+
+
+$auto_hp_regen_rect[0] = 1222
+$auto_hp_regen_rect[1] = 102 
+$auto_hp_regen_rect[2] = 1244
+$auto_hp_regen_rect[3] = 122 
+
+
+$auto_energy_regen_rect[0] = 1252
+$auto_energy_regen_rect[1] = 104 
+$auto_energy_regen_rect[2] = 1272
+$auto_energy_regen_rect[3] = 122 
+
+SUB(bump,$hwnd)
+    WNDSTATE($hwnd,0)
+    WNDSTATE($hwnd,1)
+END_SUB
+
+SUB(get_hp_level)
+
+    $pixels_found = PXLCOUNT($hp_bar[0],$hp_bar[1],$hp_bar[2],$hp_bar[3],$hp_bar_color)
+    SV("$hp_level",ROUND(($pixels_found*100/$hp_bar_pixels),0))
+    
+END_SUB
+
+SUB(get_energy_level)
+
+    $pixels_found = PXLCOUNT($energy_bar[0],$energy_bar[1],$energy_bar[2],$energy_bar[3],$energy_bar_color)
+    SV("$energy_level",ROUND(($pixels_found*100/$energy_bar_pixels),0))
+    
+END_SUB
+
+SUB(get_panel_buttons_state)
+
+    IF_PICTURE_IN($auto_shoot_rect[0],$auto_shoot_rect[1],$auto_shoot_rect[2],$auto_shoot_rect[3],$auto_shoot_image_path,-1,100)
+        $auto_shoot_state = 1
+    ELSE
+        $auto_shoot_state = 0
+    END_IF
+    
+    IF_PICTURE_IN($auto_aim_rect[0],$auto_aim_rect[1],$auto_aim_rect[2],$auto_aim_rect[3],$auto_aim_image_path,-1,100)
+        $auto_aim_state = 1
+    ELSE
+        $auto_aim_state = 0
+    END_IF
+
+    IF_PICTURE_IN($auto_hp_regen_rect[0],$auto_hp_regen_rect[1],$auto_hp_regen_rect[2],$auto_hp_regen_rect[3],$auto_hp_regen_image_path,-1,100)
+        $auto_hp_regen_state = 1
+    ELSE
+        $auto_hp_regen_state = 0
+    END_IF
+
+    IF_PICTURE_IN($auto_pick_up_rect[0],$auto_pick_up_rect[1],$auto_pick_up_rect[2],$auto_pick_up_rect[3],$auto_pick_up_image_path,-1,100)
+        $auto_pick_up_state = 1
+    ELSE
+        $auto_pick_up_state = 0
+    END_IF
+
+    IF_PICTURE_IN($auto_energy_regen_rect[0],$auto_energy_regen_rect[1],$auto_energy_regen_rect[2],$auto_energy_regen_rect[3],$auto_energy_regen_image_path,-1,100)
+        $auto_energy_regen_state = 1
+    ELSE
+        $auto_energy_regen_state = 0
+    END_IF
+
+END_SUB
+
+
+bump($_hwnd_self)
+
+HSET($hwin,1)
+
+getscreen
+
+##$x1 = 1252
+##$y1 = 104 
+##$x2 = 1272 
+##$y2 = 122  
+##
+##SCREENSHOTEX($x1,$y1,$x2,$y2)
+
+
+
+get_hp_level()
+get_energy_level()
+get_panel_buttons_state()
+PRINT(HGETTEXT($hwin))
+PRINT("Energy level:", $energy_level)
+PRINT("Hp level:", $hp_level)
+PRINT("Auto shoot state: ", $auto_shoot_state)
+PRINT("Auto aim state: ", $auto_aim_state)
+PRINT("Auto hp regen state: ", $auto_hp_regen_state)
+PRINT("Auto pick up state: ", $auto_pick_up_state)
+PRINT("Auto energy regen state: ", $auto_energy_regen_state)
+
+HALT
