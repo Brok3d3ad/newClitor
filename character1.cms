@@ -1,5 +1,4 @@
-﻿﻿#autorun
-#define gv:getvar
+﻿﻿#define gv:getvar
 #define sv:setvar
 //OFFSET +2,0,0,0
 
@@ -9,8 +8,6 @@ $auto_hp_regen_image_path = "images/top_right_panel/auto_hp_regen_on.bmp"
 $auto_pick_up_image_path = "images/top_right_panel/auto_pick_up_on.bmp" 
 $auto_energy_regen_image_path = "images/top_right_panel/auto_energy_regen_on.bmp" 
 
-$nick = "cl0wn ZRazorIII"
-$hwin = WNDFIND(GV("$nick"))
 $hp_level = 100
 $energy_level = 100
 $auto_shoot_state = 0
@@ -19,10 +16,10 @@ $auto_hp_regen_state = 0
 $auto_pick_up_state = 0
 $auto_energy_regen_state = 0
 
-$top_right_panel[0] = 1101 
-$top_right_panel[1] = 26
-$top_right_panel[2] = 1282
-$top_right_panel[3] = 129
+$top_right_panel_rect[0] = 1101 
+$top_right_panel_rect[1] = 26
+$top_right_panel_rect[2] = 1282
+$top_right_panel_rect[3] = 129
 
 $hp_bar[0] = 1119
 $hp_bar[1] = 47
@@ -119,31 +116,70 @@ SUB(get_panel_buttons_state)
 END_SUB
 
 
+
+
 bump($_hwnd_self)
 
-HSET($hwin,1)
+SUB(write_right_panel_state,$character)
 
-getscreen
+    $section_list[1] = "Character1"
+    $section_list[2] = "Character2"
+    $section_list[3] = "Character3"
+    $section_list[4] = "Character4"
+    $section_list[5] = "Character5"
+    $section = $section_list[$character]
+    INIWRITE("/python/config.ini","name",$nick,$section)
+    INIWRITE("/python/config.ini","energy_level",$energy_level,$section)
+    INIWRITE("/python/config.ini","hp_level",$hp_level,$section)
+    INIWRITE("/python/config.ini","auto_shoot_state",$auto_shoot_state,$section)
+    INIWRITE("/python/config.ini","auto_aim_state",$auto_aim_state,$section)
+    INIWRITE("/python/config.ini","auto_hp_regen_state",$auto_hp_regen_state,$section)
+    INIWRITE("/python/config.ini","auto_pick_up_state",$auto_pick_up_state,$section)
+    INIWRITE("/python/config.ini","auto_energy_regen_state",$auto_energy_regen_state,$section)
+END_SUB
 
-##$x1 = 1252
-##$y1 = 104 
-##$x2 = 1272 
-##$y2 = 122  
-##
-##SCREENSHOTEX($x1,$y1,$x2,$y2)
+SUB(routine,$character)
+    // Define character names array
+    $character_names[1] = "cl0wn ZRazorIII"
+    $character_names[2] = "cl0wn AsteroID_"
+    $character_names[3] = "cl0wn LLIU3"
+    $character_names[4] = "cl0wn arima"
+    $character_names[5] = "cl0wn katafalk"
+    
+    $nick = $character_names[$character]
+    $win = WNDFIND($nick)
+    HSET($win,1)
+    getscreen($top_right_panel_rect[0],$top_right_panel_rect[1],$top_right_panel_rect[2],$top_right_panel_rect[3])
+    get_hp_level()
+    get_energy_level()
+    get_panel_buttons_state()
+    write_right_panel_state($character)
+END_SUB
 
+WHILE(1)
+    routine(1)
+    WAITMS(1000)
+    routine(2)
+    WAITMS(1000)
+    routine(3)
+    WAITMS(1000)
+    routine(4)
+    WAITMS(1000)
+    routine(5)
+    WAITMS(1000)
+END_CYC
 
-
-get_hp_level()
-get_energy_level()
-get_panel_buttons_state()
-PRINT(HGETTEXT($hwin))
-PRINT("Energy level:", $energy_level)
-PRINT("Hp level:", $hp_level)
-PRINT("Auto shoot state: ", $auto_shoot_state)
-PRINT("Auto aim state: ", $auto_aim_state)
-PRINT("Auto hp regen state: ", $auto_hp_regen_state)
-PRINT("Auto pick up state: ", $auto_pick_up_state)
-PRINT("Auto energy regen state: ", $auto_energy_regen_state)
+THREAD(display,1)
+    LOGWRITE(HGETTEXT($win))
+    LOGWRITE("Energy level:", $energy_level)
+    LOGWRITE("Hp level:", $hp_level)
+    LOGWRITE("Auto shoot state: ", $auto_shoot_state)
+    LOGWRITE("Auto aim state: ", $auto_aim_state)
+    LOGWRITE("Auto hp regen state: ", $auto_hp_regen_state)
+    LOGWRITE("Auto pick up state: ", $auto_pick_up_state)
+    LOGWRITE("Auto energy regen state: ", $auto_energy_regen_state)
+    WAIT(1)
+    LOGCLEAR()
+END_THREAD
 
 HALT
