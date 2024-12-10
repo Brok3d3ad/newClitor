@@ -1,0 +1,76 @@
+SUB(get_panel_state,$name,$nick,$character_number)
+
+
+    $character = STRCONCAT("Character",$character_number)
+
+    INIWRITE("/python/config.ini","name",$nick,$character)
+
+    getscreen($top_left_actions_panel_rect[0],$top_left_actions_panel_rect[1],$top_left_actions_panel_rect[2],$top_left_actions_panel_rect[3])
+    IF_PICTURE_IN($invite_rect[0],$invite_rect[1],$invite_rect[2],$invite_rect[3],$invite_image_path,-1,100)
+        INIWRITE("/python/config.ini","invite_state",1,$character)
+    ELSE
+        INIWRITE("/python/config.ini","invite_state",0,$character)
+    END_IF
+    WAITMS(10)
+
+    getscreen($map_block_rect[0],$map_block_rect[1],$map_block_rect[2],$map_block_rect[3])
+    IF_PICTURE_IN($insurance_rect[0],$insurance_rect[1],$insurance_rect[2],$insurance_rect[3],$insurance_image_path,-1,100)
+        INIWRITE("/python/config.ini","insurance_state",1,$character)
+    ELSE
+        INIWRITE("/python/config.ini","insurance_state",0,$character)
+    END_IF
+    WAITMS(10)
+
+    getscreen($top_right_panel_rect[0],$top_right_panel_rect[1],$top_right_panel_rect[2],$top_right_panel_rect[3])
+
+    $pixels_found = PXLCOUNT($hp_bar_rect[0],$hp_bar_rect[1],$hp_bar_rect[2],$hp_bar_rect[3],$hp_bar_color)
+    INIWRITE("/python/config.ini","hp_level",(ROUND(($pixels_found*100/$hp_bar_pixels),0)),$character)
+    WAITMS(10)
+
+    $pixels_found = PXLCOUNT($energy_bar_rect[0],$energy_bar_rect[1],$energy_bar_rect[2],$energy_bar_rect[3],$energy_bar_color)
+    INIWRITE("/python/config.ini","energy_level",(ROUND(($pixels_found*100/$energy_bar_pixels),0)),$character)
+    WAITMS(10)
+
+    IF_PICTURE_IN($auto_shoot_rect[0],$auto_shoot_rect[1],$auto_shoot_rect[2],$auto_shoot_rect[3],$auto_shoot_image_path,-1,100)
+        INIWRITE("/python/config.ini","auto_shoot_state",1,$character)
+    ELSE
+        INIWRITE("/python/config.ini","auto_shoot_state",0,$character)
+    END_IF
+    WAITMS(10)
+
+    IF_PICTURE_IN($auto_aim_rect[0],$auto_aim_rect[1],$auto_aim_rect[2],$auto_aim_rect[3],$auto_aim_image_path,-1,100)
+        INIWRITE("/python/config.ini","auto_aim_state",1,$character)
+    ELSE
+        INIWRITE("/python/config.ini","auto_aim_state",0,$character)
+    END_IF
+    WAITMS(10)
+
+    IF_PICTURE_IN($auto_hp_regen_rect[0],$auto_hp_regen_rect[1],$auto_hp_regen_rect[2],$auto_hp_regen_rect[3],$auto_hp_regen_image_path,-1,100)
+        INIWRITE("/python/config.ini","auto_hp_regen_state",1,$character)
+    ELSE
+        INIWRITE("/python/config.ini","auto_hp_regen_state",0,$character)
+    END_IF
+    WAITMS(10)
+
+    IF_PICTURE_IN($auto_pick_up_rect[0],$auto_pick_up_rect[1],$auto_pick_up_rect[2],$auto_pick_up_rect[3],$auto_pick_up_image_path,-1,100)
+        INIWRITE("/python/config.ini","auto_pick_up_state",1,$character)
+    ELSE
+        INIWRITE("/python/config.ini","auto_pick_up_state",0,$character)
+    END_IF
+    WAITMS(10)
+
+    IF_PICTURE_IN($auto_energy_regen_rect[0],$auto_energy_regen_rect[1],$auto_energy_regen_rect[2],$auto_energy_regen_rect[3],$auto_energy_regen_image_path,-1,100)
+        INIWRITE("/python/config.ini","auto_energy_regen_state",1,$character)
+    ELSE
+        INIWRITE("/python/config.ini","auto_energy_regen_state",0,$character)
+    END_IF
+    WAITMS(10)
+
+END_SUB
+
+SUB(routine,$name,$nick,$character_number)
+    $full_name = STRCONCAT($name," ",$nick)
+    $win = WNDFIND($full_name)
+    HSET($win,1)
+    get_panel_state($name,$nick,$character_number)
+END_SUB

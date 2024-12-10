@@ -1,2 +1,110 @@
-﻿iniwrite("/python/config.ini","name","cl0wn","Character1")
-halt
+﻿﻿#define gv:getvar
+#define sv:setvar
+//OFFSET +2,0,0,0
+
+$auto_shoot_image_path = "images/top_right_panel/auto_shoot_on.bmp" 
+$auto_aim_image_path = "images/top_right_panel/auto_aim_on.bmp" 
+$auto_hp_regen_image_path = "images/top_right_panel/auto_hp_regen_on.bmp" 
+$auto_pick_up_image_path = "images/top_right_panel/auto_pick_up_on.bmp" 
+$auto_energy_regen_image_path = "images/top_right_panel/auto_energy_regen_on.bmp" 
+$invite_image_path = "images/top_left_actions_panel/invite_on.bmp"
+$insurance_image_path = "images/map_block/insurance_on.bmp"
+
+$top_right_panel_rect[0] = 1101 
+$top_right_panel_rect[1] = 26
+$top_right_panel_rect[2] = 1282
+$top_right_panel_rect[3] = 129
+
+$top_left_actions_panel_rect[0] = 200
+$top_left_actions_panel_rect[1] = 26
+$top_left_actions_panel_rect[2] = 414
+$top_left_actions_panel_rect[3] = 66
+
+$map_block_rect[0] = 3
+$map_block_rect[1] = 26
+$map_block_rect[2] = 181
+$map_block_rect[3] = 206
+
+$insurance_rect[0] = 13
+$insurance_rect[1] = 184
+$insurance_rect[2] = 24
+$insurance_rect[3] = 194
+
+$party_invite_rect[0] = 376
+$party_invite_rect[1] = 37
+$party_invite_rect[2] = 396
+$party_invite_rect[3] = 57
+
+$invite_rect[0] = 214
+$invite_rect[1] = 38
+$invite_rect[2] = 243
+$invite_rect[3] = 58
+
+$hp_bar_rect[0] = 1119
+$hp_bar_rect[1] = 47
+$hp_bar_rect[2] = 1122
+$hp_bar_rect[3] = 97 
+$hp_bar_color = 1973860
+$hp_bar_pixels = 204
+
+$energy_bar_rect[0] = 1131
+$energy_bar_rect[1] = 47
+$energy_bar_rect[2] = 1135
+$energy_bar_rect[3] = 97 
+$energy_bar_color = 6561310
+$energy_bar_pixels = 255
+
+$auto_shoot_rect[0] = 116 
+$auto_shoot_rect[1] = 108
+$auto_shoot_rect[2] = 1142
+$auto_shoot_rect[3] = 120
+
+$auto_aim_rect[0] = 1154 
+$auto_aim_rect[1] = 102 
+$auto_aim_rect[2] = 1176
+$auto_aim_rect[3] = 122 
+
+$auto_pick_up_rect[0] = 1188
+$auto_pick_up_rect[1] = 106 
+$auto_pick_up_rect[2] = 1210
+$auto_pick_up_rect[3] = 122 
+
+
+$auto_hp_regen_rect[0] = 1222
+$auto_hp_regen_rect[1] = 102 
+$auto_hp_regen_rect[2] = 1244
+$auto_hp_regen_rect[3] = 122 
+
+
+$auto_energy_regen_rect[0] = 1252
+$auto_energy_regen_rect[1] = 104 
+$auto_energy_regen_rect[2] = 1272
+$auto_energy_regen_rect[3] = 122 
+
+SUB(bump,$hwnd)
+    WNDSTATE($hwnd,0)
+    WNDSTATE($hwnd,1)
+END_SUB
+
+bump($_hwnd_self)
+
+THREAD(Monitor,1)
+    #include "routine.cms"
+    WAIT(1)
+    WHILE(1)
+        routine("cl0wn","ZRazorIII",1)
+        WAITMS(10)
+        routine("cl0wn","AsteroID_",2)
+        WAITMS(10)
+        routine("cl0wn","LLIU3",3)
+        WAITMS(10)
+        routine("cl0wn","katafalk",4)
+        WAITMS(10)
+        routine("cl0wn","arima",5)
+        WAITMS(10)
+    END_CYC
+END_THREAD
+
+WAIT(10000000000)
+
+HALT
